@@ -7,6 +7,7 @@ import { useParams, useSearchParams } from "react-router-dom";
 import Reviews from "../components/Reviews";
 import Footer from "../components/Footer";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 const { RangePicker } = DatePicker;
 
 const Hotels = () => {
@@ -28,20 +29,33 @@ const Hotels = () => {
     setPlace,
     setRatings,
     setDescription,
-    setImage
+    setImage,
+    setHotelDetail
   } = useContext(ReserveContextProvider);
 
   const { id: paramsId } = useParams();
   const [searchParams] = useSearchParams();
   const place = searchParams.get("place");
 
+  const handleNavigate = () =>{
+    if(date !== '' && selectedGuests !== ''){
+      navigate('/reserve')
+    }
+    else{
+      toast.error("Please fill all details to proceed")
+    }
+  }
+
   useEffect(() => {
+    // console.log('guests',selectedGuests)
     setId(paramsId);
     setPlace(place)
     setRatings(details?.ratings)
     setImage(details?.images[0])
     setDescription(details?.description)
-  }, [details?.description, details?.images, details?.ratings, id, paramsId, place, setDescription, setId, setImage, setPlace, setRatings]);
+    setHotelDetail(details?.details)
+    
+  }, [details?.description, details?.details, details?.images, details?.ratings, id, paramsId, place, setDescription, setHotelDetail, setId, setImage, setPlace, setRatings]);
 
   useEffect(() => {
     const handleValue = () => {
@@ -88,7 +102,7 @@ const Hotels = () => {
             <img
               src={details?.images[0]}
               alt=""
-              className="w-[600px] rounded-l-3xl h-[520px] hover:brightness-75 cursor-pointer"
+              className="w-[600px] rounded-l-3xl h-[520px] hover:brightness-75 cursor-pointer object-cover"
             ></img>
           </div>
           <div className="flex flex-col items-center justify-evenly space-y-1">
@@ -96,7 +110,7 @@ const Hotels = () => {
               <div>
                 <img
                   src={details?.images[1]}
-                  className="w-72 h-64  object-cover hover:brightness-75 cursor-pointer"
+                  className="w-72 h-64  object-cover hover:brightness-75 cursor-pointer "
                   alt=""
                 />
               </div>
@@ -222,7 +236,7 @@ const Hotels = () => {
                 </div>
               </div>
               <div className="w-full flex justify-center items-center mt-5 mb-5">
-                <Button className="bg-pink-400 text-xl text-white p-4 w-64" onClick={()=>{navigate('/reserve')}}>
+                <Button className="bg-pink-400 text-xl text-white p-4 w-64" onClick={handleNavigate}>
                   Reserve
                 </Button>
               </div>

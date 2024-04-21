@@ -42,7 +42,7 @@ const ReserveContext = ({ children }) => {
   } 
 
 
-  const [date, setDate] = useState([1, 0]);
+  const [date, setDate] = useState([1,0]);
   const [month, setMonth] = useState([]);
   const [selectedGuests, setSelectedGuests] = useState(null);
   const [id, setId] = useState(null)
@@ -52,6 +52,7 @@ const ReserveContext = ({ children }) => {
   const [ratings, setRatings] = useState()
   const [image, setImage] = useState()
   const [description, setDescription] = useState()
+  const [hotelDetail, setHotelDetail]= useState()
 
   const handleIncrement = (id) => {
     const updatedGuest = guests.map((guest) =>
@@ -93,7 +94,9 @@ const ReserveContext = ({ children }) => {
     image,
     setImage,
     description,
-    setDescription
+    setDescription,
+    hotelDetail,
+    setHotelDetail
   }
 
   return (

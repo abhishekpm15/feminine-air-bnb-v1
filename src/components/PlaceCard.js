@@ -39,7 +39,7 @@ const PlaceCard = ({ id, image, placeName, country, rating, price }) => {
         }}
       >
         <CardHeader className="relative h-56">
-          <img src={image} alt="card" className="h-56" />
+          <img src={image} alt="card" className="h-56 object-cover" />
         </CardHeader>
         <CardBody className="p-7 w-full">
           <div className="flex justify-between px-4">
