@@ -75,7 +75,7 @@ const ReservePage = () => {
                   ✅ Dates :{" "}
                 </div>
                 <div className="ml-10 font-semibold">
-                  {month[1]} {date[1]} - {month[0]} {date[0]}
+                  {month[0]} {date[0]} - {month[1]} {date[1]}
                 </div>
               </div>
               <div className="text-left flex items-center space-x-10 ml-10">
