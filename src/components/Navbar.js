@@ -20,11 +20,11 @@ const Navbar = () => {
   return (
     <div className="w-full">
       <div className="flex justify-between lg:px-32 ">
-        <div className="cursor-pointer" onClick={()=>{navigate('/')}}>
-          <img src={Airbnb} alt="air-bnb" className="w-40" ></img>
+        <div className="cursor-pointer flex items-center" onClick={()=>{navigate('/')}}>
+          <img src={Airbnb} alt="air-bnb" className="w-40 sm:w-36 lg:w-40" ></img>
         </div>
         <div className="list-none px-4 py-2 hidden sm:flex items-center">
-          <li className="flex space-x-5 text-base font-medium ">
+          <li className="flex space-x-3 lg:space-x-5 text-base font-medium items-center">
             <ul className="hover:bg-pink-300 hover:shadow-xl py-2 px-4 hover:text-white  duration-200 rounded-2xl cursor-pointer">
               Stays
             </ul>

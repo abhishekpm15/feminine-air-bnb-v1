@@ -32,10 +32,12 @@ const ReservePage = () => {
   };
 
   const handleConfirm = () =>{
-    showModal()
+    setTimeout(()=>{
+      showModal()
+    },2000)
     setTimeout(()=>{
       window.location.replace("/")
-    },3000)
+    },5000)
   }
 
   return (

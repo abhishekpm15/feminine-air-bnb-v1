@@ -25,7 +25,7 @@ const PlaceCard = ({ id, image, placeName, country, rating, price }) => {
         width={600}
       >
         <div className="text-3xl font-semibold flex justify-center mt-10">
-          Welcome to &nbsp; <span className="text-pink-300">HerStay</span>{" "}
+          Welcome to &nbsp; <span className="text-pink-300">SheShare</span>{" "}
           airbnb
         </div>
 
