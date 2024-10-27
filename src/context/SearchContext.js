@@ -1,26 +1,24 @@
 import React, { createContext, useEffect, useState } from "react";
 import datas from "../data/places";
+
 const SearchContextProvider = createContext();
 
 const SearchContext = ({ children }) => {
   const [search, setSearch] = useState("");
-  const [places, setPlaces] = useState(datas);
   const [filteredPlaces, setFilteredPlaces] = useState(datas);
 
   useEffect(() => {
     if (search === "") {
       setFilteredPlaces(datas);
     } else {
-      const res = places.filter(
+      const res = datas.filter(
         (place) =>
           place.placeName.toLowerCase().includes(search.toLowerCase()) ||
           place.country.toLowerCase().includes(search.toLowerCase())
       );
-      if (res.length > 0) {
-        setFilteredPlaces(res);
-      }
+      setFilteredPlaces(res);
     }
-  }, [places, search]);
+  }, [search]);
 
   const values = {
     search,
